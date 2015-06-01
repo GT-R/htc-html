@@ -1,0 +1,86 @@
+---
+layout: page
+---
+    
+{{ content }}
+    
+<div class="semester">
+
+<h2>Schedule</h2>
+<table id="sched">
+    <tr>
+        <th>In Class</th>
+        <th>At Home</th>
+        <th>Key Due Dates</th>
+    </tr>
+    
+    {% for session in page.course_sessions %}
+    <tr>
+        <td>
+            <!-- In Class -->
+            {% if session.class %}
+            <div class="date">{{ session.class.date }}</div>
+            
+            {% if session.class.file %}
+                {% assign page_found = false %}
+                {% for session_page in site.sessions %}
+                    {% if page_found == false and session_page.name == session.class.file %}
+                        {% assign page_found = true %}
+                        <div class="assgn">
+                            <a href="{{ session_page.url | prepend:site.baseurl }}">{{ session_page.title }}</a>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+            {% endif %}
+        </td>
+        <td>
+            <!-- At Home -->
+            {% if session.home %}
+            <div class="date">{{ session.home.date }}</div>
+            
+            {% if session.home.file %}
+                {% assign page_found = false %}
+                {% for session_page in site.sessions %}
+                    {% if page_found == false and session_page.name == session.home.file %}
+                        {% assign page_found = true %}
+                        <div class="assgn">
+                            <a href="{{ session_page.url | prepend:site.baseurl }}">{{ session_page.title }}</a>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+            {% endif %}
+        </td>  
+        <td>
+            <!-- Due Dates -->
+            {% if session.due %}
+            <ul class="due">
+                {% for item in session.due %}
+                <li class="assgn">
+                    <span class="due-date">{{ item.date }}</span> - 
+                {% if item.file %}
+                <!-- With file -->
+                {% assign page_found = false %}
+                {% for assgn_page in site.assignments %}
+                    {% if page_found == false and assgn_page.name == session.due.file %}
+                        {% assign page_found = true %}
+                        <a href="{{ assgn_page.url | prepend:site.baseurl }}">{{ assgn_page.title }}</a>
+                    {% endif %}
+                {% endfor %}
+                
+                {% else %}
+                <!-- Without file -->
+                    {{ item.name }}                    
+                {% endif %}
+                </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </td> 
+    
+    </tr>
+    {% endfor %}
+</table>
+</div>
+
