@@ -1,9 +1,9 @@
 ---
 layout: page
 ---
-    
+
 {{ content }}
-    
+
 <div class="semester">
 
 <h2>Schedule</h2>
@@ -13,14 +13,14 @@ layout: page
         <th>At Home</th>
         <th>Key Due Dates</th>
     </tr>
-    
+
     {% for session in page.course_sessions %}
     <tr>
         <td>
             <!-- In Class -->
             {% if session.class %}
             <div class="date">{{ session.class.date }}</div>
-            
+
             {% if session.class.file %}
                 {% assign page_found = false %}
                 {% for session_page in site.sessions %}
@@ -38,7 +38,7 @@ layout: page
             <!-- At Home -->
             {% if session.home %}
             <div class="date">{{ session.home.date }}</div>
-            
+
             {% if session.home.file %}
                 {% assign page_found = false %}
                 {% for session_page in site.sessions %}
@@ -51,36 +51,41 @@ layout: page
                 {% endfor %}
             {% endif %}
             {% endif %}
-        </td>  
+        </td>
         <td>
             <!-- Due Dates -->
             {% if session.due %}
             <ul class="due">
                 {% for item in session.due %}
                 <li class="assgn">
-                    <span class="due-date">{{ item.date }}</span> - 
-                {% if item.file %}
-                <!-- With file -->
-                {% assign page_found = false %}
-                {% for assgn_page in site.assignments %}
-                    {% if page_found == false and assgn_page.name == session.due.file %}
-                        {% assign page_found = true %}
-                        <a href="{{ assgn_page.url | prepend:site.baseurl }}">{{ assgn_page.title }}</a>
+                    <span class="due-date">{{ item.date }}</span> -
+                    {% if item.file %}
+                      {% assign page_found = false %}
+                      {% for assgn_page in site.assignments %}
+                          {% if page_found == false and assgn_page.name == item.file %}
+                              <!-- With file -->
+                              {% assign page_found = true %}
+                              <a href="{{ assgn_page.url | prepend:site.baseurl }}">{{ assgn_page.title }}</a>
+                          {% endif %}
+                      {% endfor %}
+                      {% unless page_found %}
+                          <!-- Missing file -->
+                          {{ item.name }}
+                      {% endunless %}
+                      {% elsif item.url %}
+                        <!-- With file -->
+                        <a href="{{ item.url }}">{{ item.name }}</a>
+                    {% else %}
+                    <!-- Without file -->
+                        {{ item.name }}
                     {% endif %}
-                {% endfor %}
-                
-                {% else %}
-                <!-- Without file -->
-                    {{ item.name }}                    
-                {% endif %}
                 </li>
                 {% endfor %}
             </ul>
             {% endif %}
-        </td> 
-    
+        </td>
+
     </tr>
     {% endfor %}
 </table>
 </div>
-

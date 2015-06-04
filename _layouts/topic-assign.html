@@ -1,0 +1,37 @@
+---
+layout: page
+---
+
+{{ page.intro }}
+
+<h2>Contents</h2>
+<ul>
+{% for topic_name in page.topics %}
+  {% assign page_found = false %}
+
+  {% for item in site.topics %}
+    {% if page_found == false and item.name == topic_name %}
+        {% assign page_found = true %}
+        <li><a href="#{{item.name}}">
+            {{item.title}}
+        </a></li>
+    {% endif %}
+  {% endfor %}
+{% endfor %}
+
+
+{% for topic_name in page.topics %}
+    {% assign page_found = false %}
+
+    {% for item in site.topics %}
+        {% if page_found == false and item.name == topic_name %}
+            {% assign page_found = true %}
+            <article id="{{item.name}}">
+                <h2>{{item.title}}</h2>
+                <div class="topic-content">
+                  {{ item.content | markdownify }}
+                </div>
+            </article>
+        {% endif %}
+    {% endfor %}
+{% endfor %}

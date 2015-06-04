@@ -4,12 +4,12 @@ title: "CCIS 1301 HTML"
 
 gems:
   - jemoji
-  
+
 exclude:
   - "README.md"
   - "Gemfile"
   - "Gemfile.lock"
-  
+
 permalink: :title
 
 collections:
@@ -21,7 +21,7 @@ collections:
     output: true
   assignments:
     output: true
-    
+
 defaults:
   -
     scope:
@@ -53,5 +53,4 @@ defaults:
       path: ""
       type: "assignments"
     values:
-      layout: "page"      
-      
+      layout: "page"

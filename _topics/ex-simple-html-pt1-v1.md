@@ -1,5 +1,5 @@
 ---
-title:  Make a Simple Web Site
+title:  Make a First Web Site
 name:   ex-simple-html-pt1-v1
 ---
 

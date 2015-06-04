@@ -1,5 +1,5 @@
 ---
-title:  Update the First Web Site
+title:  Update the First Web Site - Part 1
 name:   ex-update-simple-html-pt1-v1
 ---
 

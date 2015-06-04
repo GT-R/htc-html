@@ -27,5 +27,5 @@ You've learned to:
 Some things to do next:
 
 - Get started on the first case study assignment (check the due date on the schedule)
-- Read (or at least look over) Chapter 3 on Web Design, we will go over this material and discuss it in the next class session
+- Start work on the [Case Study]( {{ "/assignments/case-study-pacific-pt1-v1.html" | | prepend:site.baseurl  }}).  We will work on the first part in the next class.
 - Spend some time in the [Gitter online chat room](https://gitter.im/htc-ccis1301), get to know your classmates, help out, and ask questions
