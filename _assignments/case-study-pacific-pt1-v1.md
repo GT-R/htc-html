@@ -10,11 +10,11 @@ name:  case-study-pacific-pt1-v1
 ## Grading
 This assignment is worth 50 points and will be graded as follows:
 
-- HTML Pages are valid - 5 pts each (all or nothing), 10 points total
+- All HTML and CSS files are valid - 10 pts (all or nothing)
 - Page display/functionality in browser matches wireframes - 5pts each, 10 points total
 - Correct HTML5 template elements (html, body, head, meta, title) - 5 pts each, 10 points total
 - Correct HTML5 structure elements(header, nav, content div, footer) - 5 pts each, 10 points total
-- External Stylesheet is correct and valid - 10 points
+- External Stylesheet is correct - 10 points
 
 ## Introduction
 We will be working on a business site for the owner of the Pacific Trails Resort located on the coast of Northern California. The owner, would like a website that emphasizes the uniqueness of the location and accommodations. Currently the discussions on website content are in the preliminary stage, but following [agile project principles](http://agilemanifesto.org), we will get to work right away and revise our design and website code iteratively as the project requirements evolve.

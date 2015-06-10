@@ -1,5 +1,5 @@
 ---
-title: Chrome Developer Tools - Part 1
+title: Chrome Developer Tools 
 name:  dev-tools-pt1-v1
 ---
 
